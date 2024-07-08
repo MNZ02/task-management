@@ -15,7 +15,7 @@ export class AppComponent {
   title = "easy-task-app";
   users = DUMMY_USERS;
 
-  selectedId = "u1";
+  selectedId?: string;
 
   get selectedUser() {
     return this.users.find((user) => user.id === this.selectedId)!;
