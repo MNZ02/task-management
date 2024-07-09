@@ -15,6 +15,7 @@ interface User {
 })
 export class UsersComponent {
   @Input({ required: true }) users!: User;
+  @Input({ required: true }) selected!: boolean;
   @Output() select = new EventEmitter();
   get imagePath() {
     return "/assets/users/" + this.users.avatar;
