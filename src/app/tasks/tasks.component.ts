@@ -49,6 +49,10 @@ export class TasksComponent {
     console.log("Button clicked");
   }
 
+  onCancelAddTask() {
+    this.isAddingTask = false;
+  }
+
   // onAddTask() {
   //   this.tasks.push({
   //     id: Math.random().toString(),
