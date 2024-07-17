@@ -1,6 +1,7 @@
 import { Component, Input } from "@angular/core";
 import { TaskComponent } from "./task/task.component";
 import { NewTaskComponent } from "./new-task/new-task.component";
+import { NewTaskData } from "../models/new-task-data";
 @Component({
   selector: "app-tasks",
   standalone: true,
@@ -53,13 +54,14 @@ export class TasksComponent {
     this.isAddingTask = false;
   }
 
-  // onAddTask() {
-  //   this.tasks.push({
-  //     id: Math.random().toString(),
-  //     userId: this.userId!,
-  //     title: "New Task",
-  //     summary: "New Task",
-  //     dueDate: "2022-12-31",
-  //   });
-  // }
+  onAddTask(taskData: NewTaskData) {
+    this.tasks.push({
+      id: Math.random().toString(),
+      userId: this.userId!,
+      title: taskData.title,
+      summary: taskData.summary,
+      dueDate: taskData.date,
+    });
+    this.isAddingTask = false;
+  }
 }
