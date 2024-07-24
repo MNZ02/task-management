@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Component, EventEmitter, inject, Input, Output } from "@angular/core";
+import { TasksService } from "../../services/tasks.service";
 
 interface Task {
   id: string;
@@ -18,8 +19,9 @@ interface Task {
 export class TaskComponent {
   @Input({ required: true }) task!: Task;
   @Output() complete = new EventEmitter<string>();
+  private tasksService = inject(TasksService);
 
   onCompleteTask() {
-    this.complete.emit(this.task.id);
+    this.tasksService.removeTask(this.task.id);
   }
 }
